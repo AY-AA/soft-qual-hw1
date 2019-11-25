@@ -13,4 +13,6 @@ interface NamesParser {
     // Q3
     String[] theMostOccurrencesInAllNames(int n);
 
+    //Q4
+    String[] namesAppearInString(String str);
 }

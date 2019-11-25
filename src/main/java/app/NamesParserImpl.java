@@ -55,7 +55,6 @@ public class NamesParserImpl implements NamesParser {
             hashMap.put(str, hashMap.get(str) + 1);
     }
 
-
     public String[] theMostOccurrencesInAllNames(int n) {
         HashMap<String, Integer> occurrences = occurrencesInNameByLength(n);
 
@@ -84,8 +83,17 @@ public class NamesParserImpl implements NamesParser {
         return stringsWithMaxLength.toArray(new String[numOfStringsInMaxLength]);
     }
 
+    public String[] namesAppearInString(String str) {
+        List<String> namesContained = new Stack<String>();
 
+        for (String name : names) {
+            if (str.contains(name))
+                namesContained.add(name);
+        }
 
+        int numOfNamesContained = namesContained.size();
+        return namesContained.toArray(new String[numOfNamesContained]);
+    }
 
 
 }

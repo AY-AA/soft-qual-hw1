@@ -12,4 +12,7 @@ interface Printer {
 
     //Q3
     void occurrencesInMaxLengthPrinter(String[] strings);
+
+    //Q4
+    void namesContainedInStringPrinter(String[] strings);
 }

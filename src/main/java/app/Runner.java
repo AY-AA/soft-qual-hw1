@@ -20,5 +20,7 @@ public class Runner {
         String[] str = namesParser.theMostOccurrencesInAllNames(2);
         printer.occurrencesInMaxLengthPrinter(str);
 
+        String[] contained = namesParser.namesAppearInString("AASSVVBBDAADASD");
+        printer.namesContainedInStringPrinter(contained);
     }
 }

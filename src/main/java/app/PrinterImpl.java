@@ -20,4 +20,9 @@ public class PrinterImpl implements Printer{
         for (String str : strings)
             System.out.println(str);
     }
+
+    public void namesContainedInStringPrinter(String[] strings) {
+        for (String str : strings)
+            System.out.println(str);
+    }
 }
