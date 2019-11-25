@@ -15,4 +15,9 @@ public class PrinterImpl implements Printer{
         }
 
     }
+
+    public void occurrencesInMaxLengthPrinter(String[] strings) {
+        for (String str : strings)
+            System.out.println(str);
+    }
 }

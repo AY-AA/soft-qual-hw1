@@ -2,20 +2,22 @@ package app;
 
 import helper.NamesLoader;
 
-import java.util.HashMap;
+import java.util.*;
 
 public class NamesParserImpl implements NamesParser {
 
     private final String[] names;
 
 
-    public NamesParserImpl() {
+    NamesParserImpl() {
         String[] namesFromFile = NamesLoader.getNames();
         names = namesFromFile == null ? new String[] {}: namesFromFile;
     }
 
     public int occurrencesInNameByString(String str) {
         int counter = 0;
+
+        if (names == null) return counter;
 
         for (String name : names) {
             if (name.contains(str))
@@ -28,9 +30,11 @@ public class NamesParserImpl implements NamesParser {
     public HashMap<String, Integer> occurrencesInNameByLength(int n) {
         HashMap<String, Integer> strOccurrences = new HashMap<String, Integer>();
 
+        if (names == null) return strOccurrences;
+
         for (String name : names) {
             int leftSide = 0, rightSide = n;
-            while (rightSide < name.length()) {
+            while (rightSide <= name.length()) {
 
                 String currSubString = name.substring(leftSide, rightSide);
                 increaseHashMapInt(strOccurrences, currSubString);
@@ -51,7 +55,36 @@ public class NamesParserImpl implements NamesParser {
             hashMap.put(str, hashMap.get(str) + 1);
     }
 
-    
+
+    public String[] theMostOccurrencesInAllNames(int n) {
+        HashMap<String, Integer> occurrences = occurrencesInNameByLength(n);
+
+        if (occurrences == null)
+            return new String[0];
+
+        Iterator iterator = occurrences.values().iterator();
+        int maxOccurrences = 0;
+
+        while (iterator.hasNext()) {
+            int currOccurrence = (Integer) iterator.next();
+            maxOccurrences = currOccurrence > maxOccurrences ? currOccurrence : maxOccurrences;
+        }
+
+        if (maxOccurrences == 0) // no occurrences n-lengthed
+            return new String[0];
+
+        List<String> stringsWithMaxLength = new LinkedList<String>();
+
+        for (Map.Entry<String, Integer> currPair : occurrences.entrySet()) {
+            if (currPair.getValue() == maxOccurrences)
+                stringsWithMaxLength.add(currPair.getKey());
+        }
+
+        int numOfStringsInMaxLength = stringsWithMaxLength.size();
+        return stringsWithMaxLength.toArray(new String[numOfStringsInMaxLength]);
+    }
+
+
 
 
 

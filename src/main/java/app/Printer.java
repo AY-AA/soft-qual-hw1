@@ -10,5 +10,6 @@ interface Printer {
     //Q2
     void occurrencesInNameByLengthPrinter(HashMap<String, Integer> hashMap);
 
-
+    //Q3
+    void occurrencesInMaxLengthPrinter(String[] strings);
 }

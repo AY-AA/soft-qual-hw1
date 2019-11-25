@@ -8,14 +8,17 @@ public class Runner {
         chooseOption(new NamesParserImpl(), new PrinterImpl());
     }
 
-    private static void chooseOption(NamesParser namesParserImpl, Printer printer) {
+    private static void chooseOption(NamesParser namesParser, Printer printer) {
         //todo: menu -- by questions pdf
 
-        int numOfLI = namesParserImpl.occurrencesInNameByString("a");
+        int numOfLI = namesParser.occurrencesInNameByString("a");
         printer.occurrencesInNameByStringPriner(numOfLI);
 
-        HashMap<String, Integer> occurrencesInNameByLength = namesParserImpl.occurrencesInNameByLength(1);
+        HashMap<String, Integer> occurrencesInNameByLength = namesParser.occurrencesInNameByLength(2);
         printer.occurrencesInNameByLengthPrinter(occurrencesInNameByLength);
+
+        String[] str = namesParser.theMostOccurrencesInAllNames(2);
+        printer.occurrencesInMaxLengthPrinter(str);
 
     }
 }

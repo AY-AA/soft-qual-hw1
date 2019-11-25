@@ -10,5 +10,7 @@ interface NamesParser {
     // Q2
     HashMap<String, Integer> occurrencesInNameByLength(int n);
 
+    // Q3
+    String[] theMostOccurrencesInAllNames(int n);
 
 }
