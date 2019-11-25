@@ -1,5 +1,7 @@
 package app;
 
+import helper.NamesLoader;
+
 import java.util.HashMap;
 
 public class NamesParserImpl implements NamesParser {
