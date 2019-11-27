@@ -665,7 +665,6 @@ Chanel
 Chanelle
 Channing
 Chantal
-Chant�
 Chantel
 Chantelle
 Charis
@@ -716,7 +715,6 @@ Chile
 China
 Chip
 Chloe
-Chlo�
 Chris
 Chrissie
 Chrissy
@@ -1265,8 +1263,6 @@ Eryn
 Esmae
 Esmaralda
 Esme
-Esm�
-Esm�e
 Esmee
 Esmeralda
 Esmond
@@ -1933,7 +1929,7 @@ Johnie
 Johnna
 Johnnie
 Johnny
-John paul
+John Paul
 Joi
 Joisse
 Jojo
@@ -2654,15 +2650,15 @@ Marva
 Marvin
 Marvyn
 Mary
-Mary ann
+Mary Ann
 Maryann
-Mary anne
+Mary Anne
 Maryanne
-Mary beth
+Mary Beth
 Marybeth
-Mary jane
-Mary jo
-Mary lou
+Mary Jane
+Mary Jo
+Mary Lou
 Marylou
 Marylu
 Marylyn
