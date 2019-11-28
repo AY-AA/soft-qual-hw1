@@ -15,4 +15,7 @@ interface NamesParser {
 
     //Q4
     String[] namesAppearInString(String str);
+
+    //Q5 - Bonus
+    String generateName();
 }

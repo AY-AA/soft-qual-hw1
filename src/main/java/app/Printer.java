@@ -15,4 +15,7 @@ interface Printer {
 
     //Q4
     void namesContainedInStringPrinter(String[] strings);
+
+    //Q5 - Bonus
+    void generatedNamePrinter(String name);
 }

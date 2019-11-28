@@ -55,7 +55,8 @@ public class ProgramRunner {
         }
 
         else if (question.equals(QUESTIONS[4])) {
-            //TODO: BONUS
+            String generatedName = namesParser.generateName();
+            printer.generatedNamePrinter(generatedName);
         }
 
         else {
@@ -85,6 +86,7 @@ public class ProgramRunner {
     }
 
     public static void main(String[] args) {
+
         new ProgramRunner(args, new PrinterImpl(), new NamesParserImpl());
     }
 

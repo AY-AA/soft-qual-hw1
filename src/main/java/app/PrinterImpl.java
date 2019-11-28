@@ -25,4 +25,8 @@ public class PrinterImpl implements Printer{
         for (String str : strings)
             System.out.println(str);
     }
+
+    public void generatedNamePrinter(String name) {
+        System.out.println(name);
+    }
 }

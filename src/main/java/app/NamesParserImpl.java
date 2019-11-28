@@ -95,5 +95,77 @@ public class NamesParserImpl implements NamesParser {
         return namesContained.toArray(new String[numOfNamesContained]);
     }
 
+    public String generateName() {
+        String generatedName = getFirstChar();
+        while (uniqueCharacters((generatedName))){
+            generatedName += updateRes(generatedName);
+        }
+        return generatedName.substring(0, generatedName.length() - 1);
+    }
+
+    private String getFirstChar() {
+        HashMap<String, Integer> occurrences = new HashMap<String, Integer>();
+        for (String name : names) {
+            increaseHashMapInt(occurrences, "" + name.charAt(0));
+        }
+        return getMaxFromHash(occurrences);
+    }
+
+    private String updateRes(String resSoFar) {
+        HashMap<String, Integer> occurrences = new HashMap<String, Integer>();
+        char ch = 'a';
+
+        while (ch <= 'z') {
+            if(resSoFar.length() < 2) {
+                occurrences.put(resSoFar + ch, 0);
+                occurrences.put(resSoFar.toLowerCase() + ch, 0);
+            }
+            else {
+                occurrences.put(resSoFar.substring(resSoFar.length() - 1) + ch, 0);
+            }
+            ch++;
+        }
+
+        for (String key : occurrences.keySet()) {
+            int nubOfOccurrences = occurrencesInNameByString(key);
+            occurrences.put(key, nubOfOccurrences);
+        }
+        return getMaxFromHash(occurrences).substring(1);
+    }
+
+    private boolean uniqueCharacters(String str) {
+        // Taken from GeeksForGeeks
+
+        // Assuming string can have characters a-z
+        // this has 32 bits set to 0
+        int checker = 0;
+
+        for (int i = 0; i < str.length(); i++) {
+            int bitAtIndex = str.charAt(i) - 'a';
+
+            // if that bit is already set in checker,
+            // return false
+            if ((checker & (1 << bitAtIndex)) > 0)
+                return false;
+
+            // otherwise update and continue by
+            // setting that bit in the checker
+            checker = checker | (1 << bitAtIndex);
+        }
+
+        // no duplicates encountered, return true
+        return true;
+    }
+
+    private String getMaxFromHash(HashMap<String, Integer> hashMap) {
+        Map.Entry<String, Integer> maxEntry = null;
+        for (Map.Entry<String, Integer> entry : hashMap.entrySet()) {
+
+            if (maxEntry == null || entry.getValue() > maxEntry.getValue()) {
+                maxEntry = entry;
+            }
+        }
+        return maxEntry.getKey();
+    }
 
 }
