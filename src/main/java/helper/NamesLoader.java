@@ -7,7 +7,7 @@ import java.util.List;
 
 public class NamesLoader {
 
-    private final static String FILE_PATH = "./src/names.txt";
+    private final static String FILE_PATH = "./names.txt";
 
 
     public static String[] getNames() {

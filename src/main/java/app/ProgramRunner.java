@@ -17,7 +17,7 @@ public class ProgramRunner {
     }
 
     private void parseProgramInput(String[] args) {
-        if (args == null || args.length < 2)
+        if (args == null || args.length < 1)
             return;
 
         String question = args[0];
@@ -34,19 +34,24 @@ public class ProgramRunner {
 
         if (question.equals(QUESTIONS[0])) {
             int numOfLI = namesParser.occurrencesInNameByString(parameter);
-            printer.occurrencesInNameByStringPriner(numOfLI);
+            if (numOfLI != -1)
+                printer.occurrencesInNameByStringPriner(numOfLI);
         }
 
         else if (question.equals(QUESTIONS[1])) {
             int lengthToLookFor = parseIntFromString(parameter);
-            HashMap<String, Integer> occurrencesInNameByLength = namesParser.occurrencesInNameByLength(lengthToLookFor);
-            printer.occurrencesInNameByLengthPrinter(occurrencesInNameByLength);
+            if (lengthToLookFor != -1) {
+                HashMap<String, Integer> occurrencesInNameByLength = namesParser.occurrencesInNameByLength(lengthToLookFor);
+                printer.occurrencesInNameByLengthPrinter(occurrencesInNameByLength);
+            }
         }
 
         else if (question.equals(QUESTIONS[2])) {
             int lengthToLookFor = parseIntFromString(parameter);
-            String[] str = namesParser.theMostOccurrencesInAllNames(lengthToLookFor);
-            printer.occurrencesInMaxLengthPrinter(str);
+            if (lengthToLookFor != -1) {
+                String[] str = namesParser.theMostOccurrencesInAllNames(lengthToLookFor);
+                printer.occurrencesInMaxLengthPrinter(str);
+            }
         }
 
         else if (question.equals(QUESTIONS[3])) {
@@ -70,7 +75,7 @@ public class ProgramRunner {
             return validateInt(lengthToLookFor);
 
         } catch (NumberFormatException e) {
-            System.out.println("Invalid parameter.\n expected: positive number, given: " + parameter);
+            System.out.println("Invalid parameter. expected: positive number, given: " + parameter);
             return -1;
         }
     }
